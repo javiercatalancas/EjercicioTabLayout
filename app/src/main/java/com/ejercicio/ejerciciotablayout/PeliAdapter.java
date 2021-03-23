@@ -1,6 +1,8 @@
 package com.ejercicio.ejerciciotablayout;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +39,26 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         PeliHolder pholder = (PeliHolder) holder;
+        final Pelicula pelicula = datos.get(position);
+        String titulo = pelicula.getTitulo();
+        String imagen = pelicula.getImagencab();
+        String fecha = pelicula.getFecha();
+        String descripcion = pelicula.getDescripcion();
+        String nota = pelicula.getNota();
 
+        pholder.setText(imagen, titulo);
+
+
+        pholder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EntryBlogActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("objeto", pelicula);
+                intent.putExtra("extra", bundle);
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -47,20 +68,25 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     class PeliHolder extends RecyclerView.ViewHolder{
-        private final TextView titulo;
+        private final TextView title;
         private final ImageView image;
+
 
         public PeliHolder(@NonNull View itemView) {
             super(itemView);
-            titulo = itemView.findViewById(R.id.imageholder);
+            title = itemView.findViewById(R.id.tituloholder);
             image = itemView.findViewById(R.id.imageholder);
+
         }
 
-        
+        public void setText( String imagen, String titulo){
+            title.setText(titulo);
+            int url = context.getResources().getIdentifier(imagen, "drawable", context.getPackageName());
+            image.setImageResource(url);
+
+        }
 
     }
-
-
 
 
 }

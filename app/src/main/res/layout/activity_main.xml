@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/pantalla1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pantalla 1"
@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.294" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/pantalla2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pantalla 2"
