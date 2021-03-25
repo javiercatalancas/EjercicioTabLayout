@@ -33,7 +33,7 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.peli_holder_layout, parent, false);
 
-        return new PeliHolder(view) ;
+        return new PeliHolder(view);
     }
 
     @Override
