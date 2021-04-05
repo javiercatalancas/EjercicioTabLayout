@@ -21,7 +21,7 @@ public class MyPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public Fragment createFragment(int position) {
-        Pelicula peli = listapelis.get(position);
+         final Pelicula peli = listapelis.get(position);
         FragmentPeliculas fragmentPeliculas = FragmentPeliculas.newInstance(peli, position);
         return fragmentPeliculas;
     }

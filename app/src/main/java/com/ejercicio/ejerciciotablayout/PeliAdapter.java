@@ -39,7 +39,7 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         PeliHolder pholder = (PeliHolder) holder;
-        final Pelicula pelicula = datos.get(position);
+        Pelicula pelicula = datos.get(position);
         String titulo = pelicula.getTitulo();
         String imagen = pelicula.getImagencab();
         String fecha = pelicula.getFecha();
@@ -64,7 +64,7 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return (datos == null) ? 0 : datos.size();
     }
 
     class PeliHolder extends RecyclerView.ViewHolder{
