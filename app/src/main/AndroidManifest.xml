@@ -19,6 +19,7 @@
         <activity android:name=".TabActivity">
 
         </activity>
+        <activity android:name=".EntryBlogActivity"/>
     </application>
 
 </manifest>

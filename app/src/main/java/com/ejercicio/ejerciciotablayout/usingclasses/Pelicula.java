@@ -6,13 +6,15 @@ import android.os.Parcelable;
 public class Pelicula implements Parcelable {
 
     private String titulo, imagencab, fecha, nota, descripcion;
+    private int tipo;
 
-    public Pelicula (String titulo, String imagencab, String fecha, String nota, String descripcion ){
+    public Pelicula (String titulo, String imagencab, String fecha, String nota, String descripcion, int tipo ){
         this.titulo = titulo;
         this.imagencab = imagencab;
         this.fecha = fecha;
         this.nota = nota;
         this.descripcion = descripcion;
+        this.tipo = tipo;
     }
 
     protected Pelicula(Parcel in) {
@@ -21,6 +23,7 @@ public class Pelicula implements Parcelable {
         fecha = in.readString();
         nota= in.readString();
         descripcion=in.readString();
+        tipo = in.readInt();
     }
 
 
@@ -77,6 +80,14 @@ public class Pelicula implements Parcelable {
         this.descripcion = descripcion;
     }
 
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(titulo);
@@ -84,6 +95,7 @@ public class Pelicula implements Parcelable {
         dest.writeString(fecha);
         dest.writeString(nota);
         dest.writeString(descripcion);
+        dest.writeInt(tipo);
     }
 
     @Override

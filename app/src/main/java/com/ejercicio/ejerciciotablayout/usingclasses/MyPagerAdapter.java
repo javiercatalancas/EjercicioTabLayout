@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.ejercicio.ejerciciotablayout.fragments.FragmentPeliculas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyPagerAdapter extends FragmentStateAdapter {
 
@@ -21,13 +22,47 @@ public class MyPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public Fragment createFragment(int position) {
-         final Pelicula peli = listapelis.get(position);
-        FragmentPeliculas fragmentPeliculas = FragmentPeliculas.newInstance(peli, position);
-        return fragmentPeliculas;
+
+        if(position==0){
+            ArrayList<Pelicula> pelicomedia = new ArrayList<>();
+            for (int i=0; i<listapelis.size(); i++){
+                Pelicula peli = listapelis.get(i);
+                if(peli.getTipo()==1){
+                    pelicomedia.add(peli);
+                }
+            }
+
+            FragmentPeliculas fragmentPeliculas = FragmentPeliculas.newInstance(pelicomedia);
+            return fragmentPeliculas;
+        } else if (position==1){
+            ArrayList<Pelicula> peliterror = new ArrayList<>();
+            for (int i=0; i<listapelis.size(); i++){
+                Pelicula peli = listapelis.get(i);
+                if(peli.getTipo()==0){
+                    peliterror.add(peli);
+                }
+            }
+
+            FragmentPeliculas fragmentPeliculas = FragmentPeliculas.newInstance(peliterror);
+            return fragmentPeliculas;
+        } else if(position==2){
+            ArrayList<Pelicula> peliaccion = new ArrayList<>();
+            for (int i=0; i<listapelis.size(); i++){
+                Pelicula peli = listapelis.get(i);
+                if(peli.getTipo()==2){
+                    peliaccion.add(peli);
+                }
+            }
+
+            FragmentPeliculas fragmentPeliculas = FragmentPeliculas.newInstance(peliaccion);
+            return fragmentPeliculas;
+        }
+        
+     return null;
     }
 
     @Override
     public int getItemCount() {
-        return listapelis.size();
+        return 3;
     }
 }

@@ -17,22 +17,22 @@ import com.ejercicio.ejerciciotablayout.R;
 import com.ejercicio.ejerciciotablayout.usingclasses.Pelicula;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentPeliculas extends Fragment {
 
     private static final String ELEM_PELI = "peli";
     private static final String ELEM_POS = "position";
-    private ArrayList<Pelicula> listapelis;
+    private List<Pelicula> listapelis;
     private int position;
 
 
     RecyclerView recyclerView;
 
 
-    public static FragmentPeliculas newInstance (Pelicula peli, int position){
+    public static FragmentPeliculas newInstance (ArrayList<Pelicula> peliculas){
             Bundle elementos = new Bundle();
-            elementos.putParcelable(ELEM_PELI, peli);
-            elementos.putInt(ELEM_POS, position);
+            elementos.putParcelableArrayList(ELEM_PELI, peliculas);
             FragmentPeliculas fragmentPeliculas = new FragmentPeliculas();
             fragmentPeliculas.setArguments(elementos);
             return fragmentPeliculas;
@@ -45,9 +45,6 @@ public class FragmentPeliculas extends Fragment {
         if (arguments !=null){
             if (arguments.containsKey(ELEM_PELI)){
                 listapelis = arguments.getParcelableArrayList(ELEM_PELI);
-            }
-            if (arguments.containsKey(ELEM_POS)){
-                position = arguments.getInt(ELEM_POS);
             }
         }
     }
@@ -66,7 +63,7 @@ public class FragmentPeliculas extends Fragment {
         recyclerView.setHasFixedSize(true);
         GridLayoutManager glm = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(glm);
-        PeliAdapter adapter = new PeliAdapter(listapelis, getActivity());
+        PeliAdapter adapter = new PeliAdapter((ArrayList<Pelicula>) listapelis, getActivity());
         recyclerView.setAdapter(adapter);
 
     }

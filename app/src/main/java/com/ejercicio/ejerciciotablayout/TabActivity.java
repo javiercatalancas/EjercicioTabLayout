@@ -22,7 +22,12 @@ public class TabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_layout);
         ArrayList<Pelicula> listapelis = new ArrayList<>();
-        listapelis.add(new Pelicula("Borat 2", "borat", "2020","7.5", "Tras pasar 14 años realizando trabajos forzosos, el gobierno kazajo decide liberar al periodista Borat. La liberación lleva consigo una condición: Borat debe viajar a Estados Unidos para entregarle un soborno al vicepresidente Mike Pence, en medio de las elecciones presidenciales de 2020 y la pandemia de COVID-19."));
+        listapelis.add(new Pelicula("Borat 2", "borat", "2020","7.5", "Tras pasar 14 años realizando trabajos forzosos, el gobierno kazajo decide liberar al periodista Borat. La liberación lleva consigo una condición: Borat debe viajar a Estados Unidos para entregarle un soborno al vicepresidente Mike Pence, en medio de las elecciones presidenciales de 2020 y la pandemia de COVID-19.", 1));
+        listapelis.add(new Pelicula("Borat 2", "borat", "2020","7.5", "Tras pasar 14 años realizando trabajos forzosos, el gobierno kazajo decide liberar al periodista Borat. La liberación lleva consigo una condición: Borat debe viajar a Estados Unidos para entregarle un soborno al vicepresidente Mike Pence, en medio de las elecciones presidenciales de 2020 y la pandemia de COVID-19.", 1));
+        listapelis.add(new Pelicula("Borat 2", "borat", "2020","7.5", "Tras pasar 14 años realizando trabajos forzosos, el gobierno kazajo decide liberar al periodista Borat. La liberación lleva consigo una condición: Borat debe viajar a Estados Unidos para entregarle un soborno al vicepresidente Mike Pence, en medio de las elecciones presidenciales de 2020 y la pandemia de COVID-19.", 0));
+        listapelis.add(new Pelicula("Borat 2", "borat", "2020","7.5", "Tras pasar 14 años realizando trabajos forzosos, el gobierno kazajo decide liberar al periodista Borat. La liberación lleva consigo una condición: Borat debe viajar a Estados Unidos para entregarle un soborno al vicepresidente Mike Pence, en medio de las elecciones presidenciales de 2020 y la pandemia de COVID-19.", 2));
+
+
 
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager(), getLifecycle(), listapelis);
         ViewPager2 viewPager2 = findViewById(R.id.viewpager2);
@@ -33,7 +38,10 @@ public class TabActivity extends AppCompatActivity {
         TabLayoutMediator mediator = new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText("COMEDIA " + (position+1));
+                // MONTO UN SWITCH CON CADA UNA DE LAS OPCIONES (FRAGMENTS)(3)
+                // posiciones de 0 a 2
+
+                tab.setText(" COMEDIA " + (position+1));
             }
         });
 
