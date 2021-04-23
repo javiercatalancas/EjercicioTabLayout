@@ -40,8 +40,15 @@ public class TabActivity extends AppCompatActivity {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 // MONTO UN SWITCH CON CADA UNA DE LAS OPCIONES (FRAGMENTS)(3)
                 // posiciones de 0 a 2
-
-                tab.setText(" COMEDIA " + (position+1));
+                switch (position){
+                    case 0: tab.setText("COMEDIA" );
+                    break;
+                    case 1: tab.setText("ACCIÓN" );
+                    break;
+                    case 2: tab.setText("DRAMA" );
+                    break;
+                }
+                //tab.setText(" COMEDIA " + (position+1));
             }
         });
 

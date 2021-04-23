@@ -32,7 +32,6 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.peli_holder_layout, parent, false);
-
         return new PeliHolder(view);
     }
 
@@ -48,7 +47,7 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         pholder.setText(imagen, titulo);
 
-
+    //Con este click pasamos a EntryBlogActivity
         pholder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,17 +75,11 @@ public class PeliAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(itemView);
             title = itemView.findViewById(R.id.tituloholder);
             image = itemView.findViewById(R.id.imageholder);
-
         }
-
         public void setText( String imagen, String titulo){
             title.setText(titulo);
             int url = context.getResources().getIdentifier(imagen, "drawable", context.getPackageName());
             image.setImageResource(url);
-
         }
-
     }
-
-
 }

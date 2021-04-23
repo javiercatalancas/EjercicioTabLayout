@@ -26,9 +26,7 @@ public class FragmentPeliculas extends Fragment {
     private List<Pelicula> listapelis;
     private int position;
 
-
     RecyclerView recyclerView;
-
 
     public static FragmentPeliculas newInstance (ArrayList<Pelicula> peliculas){
             Bundle elementos = new Bundle();
@@ -61,7 +59,7 @@ public class FragmentPeliculas extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         recyclerView.setHasFixedSize(true);
-        GridLayoutManager glm = new GridLayoutManager(getActivity(), 2);
+        GridLayoutManager glm = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(glm);
         PeliAdapter adapter = new PeliAdapter((ArrayList<Pelicula>) listapelis, getActivity());
         recyclerView.setAdapter(adapter);
